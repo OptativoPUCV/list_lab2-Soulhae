@@ -98,19 +98,16 @@ void * popBack(List * list) {
 }
 
 void * popCurrent(List * list) {
-  Node *aux = list->head;
+  Node *nodo = list->current;
   if(list->current == list->head){
-    aux=list->current;
-    free(list->current);
-    list->head=list->head->next;
-    return (void *)aux->data;
+    list->head = list->current->next;
+  }else if(list->current == list->tail){
+    list->tail = list->current->prev;
+  }else{
+    list->current->prev->next = list->current->next;
+    list->current->next->prev = list->current->prev;
   }
-  while(aux->next != list->current){
-    aux = aux->next;
-  }
-  aux->next = list->current->next;
-  free(list->current);
-  return (void *)aux->data;
+  return (void *) nodo->data;
 }
 
 void cleanList(List * list) {

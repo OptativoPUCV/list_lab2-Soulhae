@@ -39,7 +39,7 @@ List * createList() {
 void * firstList(List * list) {
   if(!list->head) return NULL;
   list->current = list->head;
-  return (void *) list->head->data;
+  return (void *) list->current->data;
 }
 
 void * nextList(List * list) {
@@ -49,11 +49,13 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
-    return NULL;
+  list->current = list->tail;
+  return (void *) list->current->data;
 }
 
 void * prevList(List * list) {
-    return NULL;
+  list->current = list->current->prev;
+  return (void *) list->current->data;
 }
 
 void pushFront(List * list, const void * data) {

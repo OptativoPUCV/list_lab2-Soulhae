@@ -82,6 +82,7 @@ void pushCurrent(List * list, const void * data) {
   if(list->current == list->tail){
     list->tail = nodo;
     nodo->prev = list->tail;
+    list->tail->prev = list->current;
   }
   list->current->next = nodo;
 }

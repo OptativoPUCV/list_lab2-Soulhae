@@ -38,12 +38,12 @@ List * createList() {
 
 void * firstList(List * list) {
   list->current = list->head;
-  return (list->head);
+  return (void *) list->head->data;
 }
 
 void * nextList(List * list) {
   list->current = list->current->next;
-  return (list->current->next);
+  return (void *) list->current->next->data;
 }
 
 void * lastList(List * list) {

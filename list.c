@@ -68,13 +68,13 @@ void pushFront(List * list, const void * data) {
 }
 
 void pushBack(List * list, const void * data) {
-  list->current = list->tail;
-  pushCurrent(list,data);
+    list->current = list->tail;
+    pushCurrent(list,data);
 }
 
 void pushCurrent(List * list, const void * data) {
   Node *nodo = createNode(data);
-  if(!list->head) list->head = nodo;
+  if(!list->head) nodo = list->head;
   if(list->current == list->head) nodo = list->head;
   list->current->next = nodo;
 }

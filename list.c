@@ -38,11 +38,12 @@ List * createList() {
 
 void * firstList(List * list) {
   list->current = list->head;
-  return list->head;
+  return (void *) list->head;
 }
 
 void * nextList(List * list) {
-    return NULL;
+
+  return NULL;
 }
 
 void * lastList(List * list) {

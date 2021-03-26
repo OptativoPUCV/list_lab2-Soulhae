@@ -60,8 +60,7 @@ void * prevList(List * list) {
 
 void pushFront(List * list, const void * data) {
   list->head=createNode(data);
-  list->tail=createNode(data);
-  list->current=createNode(data);
+  list->tail=list->head;
 }
 
 void pushBack(List * list, const void * data) {
